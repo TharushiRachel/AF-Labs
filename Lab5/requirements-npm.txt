@@ -1,0 +1,4 @@
+npm i koa --save-dev
+npm i @koa/router
+npm i koa-bodyparser
+npm install uuid
