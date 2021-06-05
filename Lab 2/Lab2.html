@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+     let printme=function (value){
+         console.log(value);
+     };
+
+    //Q1 promises
+       let getValue = function (callback) {
+       let value = 0;
+       return new Promise(function (resolve) {
+           setTimeout(function () {
+               value = 10;
+               resolve(value);
+           }, 2000);
+       });
+   };
+
+   getValue().then(function (value){
+       console.log(value);
+   });
+
+   //console.log("Hello");
+
+
+        //Q1 upto callback
+        setTimeout(function (){
+            value=10;
+            callback(value);
+        },2000);
+
+
+
+
+    console.log(getValue(printme()));
+
+    setTimeout(function (){console.log("Hello")},2000);
+
+    //return value;//line 42
+     //console.log(value) line 35
+     //return value; line 37
+
+//Q2
+//     function Vehicle(type){
+//         this.type=type;
+//         Vehicle.VehicleCount++;
+//     }
+//
+//     Vehicle.VehicleCount=0;
+//
+//     const vehicle = new Vehicle("Toyota");
+//     console.log(vehicle.type);
+//
+//     console.log(Vehicle.VehicleCount);
+//
+//     Vehicle.prototype.Driving = function (){
+//         console.log(this.type+"Vehical is driving.");
+//     }
+//
+//     //6
+//     function Car(type){
+//         Vehicle(this.type)
+//     }
+//
+//     //extendind car:7
+//     Car.prototype=Object.create(Vehicle.prototype);
+//     Car.prototype.constructor=Car;
+//
+//     //8
+//     Car.prototype.balanceWheels = function (){
+//         console.log("Wheels are balanced");
+//     }
+//
+//     //9,10
+//     const car=new Car("Honda");
+//     vehicle.Driving;
+//     car.Driving;
+//     car.balanceWheels();
+//     console.log(Vehicle.VehicleCount);
+//
+//     //11
+
+
+    //Question 4
+
+    let getValue = function (callback) {
+       let value = 0;
+       return new Promise(function (resolve) {
+           setTimeout(function () {
+               value = 10;
+               resolve(value);
+           }, 2000);
+       });
+   };
+
+    function getNewValue(value){
+        return new Promise(function (resolve, reject){
+            value=value+100;
+            resolve(value);
+        })
+    }
+
+   getValue().then(function (value){
+       console.log(value);
+   });
+
+     async function q1(){
+        let v = await getValue();
+        let v2=await getNewValue(v);
+       console.log(v);
+       console.log(v2);
+       console.log("asynchronous")
+    }
+
+   q1();
+
+</script>
+</body>
+</html>
